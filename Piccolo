@@ -1,0 +1,22 @@
+function piccolo(input) {
+    let parkingLot = [];
+    input.forEach(element => {
+        element = element.split(`, `);
+        let [comand, carNum] = element;
+        if (comand === "OUT") {
+            let token = parkingLot.indexOf(carNum);
+            parkingLot.splice(token, 1);
+
+        } else {
+            parkingLot.push(carNum);
+        }
+
+    })
+    parkingLot = parkingLot.sort((a, b) => a.localeCompare(b));
+    if (parkingLot.length > 0) {
+        return parkingLot.join(`\n`);
+    } else {
+        return `Parking Lot is Empty`
+    }
+
+}
