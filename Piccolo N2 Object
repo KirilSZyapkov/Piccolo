@@ -1,0 +1,17 @@
+function piccolo(input) {
+    let parkingLot = {};
+    input.forEach(element => {
+        element = element.split(`, `);
+        let [comand, carNum] = element;
+        if (comand === "IN") {
+            parkingLot[carNum] = 1;
+
+        } else if (comand === "OUT"){
+           delete parkingLot[carNum];
+        }
+
+    })
+   return  Object.keys(parkingLot).sort((a, b) => a.localeCompare(b))
+       .join(`\n`);
+    
+}
